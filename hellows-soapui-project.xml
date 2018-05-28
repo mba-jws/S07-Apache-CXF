@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="41134ff4-61fe-43e5-8a82-c6cb242fedf4" activeEnvironment="Default" name="hellows" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="19721b51-1d9e-4b28-af7a-f2e3bf4f7ebb" wsaVersion="NONE" name="HelloWsServiceSoapBinding" type="wsdl" bindingName="{http://soap.ws.bharath.com/}HelloWsServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/hellows/hello?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/hellows/hello?wsdl"><con:part><con:url>http://localhost:8080/hellows/hello?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="HelloWsService" targetNamespace="http://soap.ws.bharath.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soap.ws.bharath.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://soap.ws.bharath.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="hello" type="tns:hello"/>
+      <xs:element name="helloResponse" type="tns:helloResponse"/>
+      <xs:complexType name="hello">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="helloResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="hello">
+    <wsdl:part element="tns:hello" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="helloResponse">
+    <wsdl:part element="tns:helloResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="HelloWs">
+    <wsdl:operation name="hello">
+      <wsdl:input message="tns:hello" name="hello"></wsdl:input>
+      <wsdl:output message="tns:helloResponse" name="helloResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HelloWsServiceSoapBinding" type="tns:HelloWs">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="hello">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="hello">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="helloResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HelloWsService">
+    <wsdl:port binding="tns:HelloWsServiceSoapBinding" name="HelloWsPort">
+      <soap:address location="http://localhost:8080/hellows/hello"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/hellows/hello</con:endpoint></con:endpoints><con:operation id="7012a9c8-c7d1-4be0-a456-6ac6871db87f" isOneWay="false" action="" name="hello" bindingOperationName="hello" type="Request-Response" outputName="helloResponse" inputName="hello" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="06c1635c-db56-4f03-9e0e-0b3c715699a3" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/hellows/hello</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.ws.bharath.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soap:hello/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.ws.bharath.com/HelloWs/hello"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
